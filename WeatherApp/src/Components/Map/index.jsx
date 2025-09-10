@@ -5,7 +5,7 @@ const WeatherMap = ({ children }) => {
     return (
         <MapContainer
             center={[24.8607, 67.0011]}
-            zoom={13}
+            zoom={5}
             className='w-[100%] h-[100%]'
             zoomControl={false}
             dragging={false}
