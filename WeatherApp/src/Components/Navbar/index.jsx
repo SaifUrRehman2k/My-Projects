@@ -10,10 +10,10 @@ const Navbar = () => {
         <NavLink to={'/hourly'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
           <span className='group-[.active]:underline'>Hourly</span>
         </NavLink>
-        <NavLink to={'/radar'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
+        <NavLink to={'/tomorrow'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
           <span className='group-[.active]:underline'>Tomorrow</span>
         </NavLink>
-        <NavLink to={'/tomorrow'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
+        <NavLink to={'/radar'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
           <span className='group-[.active]:underline'>Radar</span>
         </NavLink>
         <NavLink to={'/forecast'} className='group pl-2 pr-5 py-1 hover:bg-transparent-100'>
