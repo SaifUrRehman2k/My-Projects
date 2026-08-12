@@ -8,7 +8,7 @@ import Menu from '../../assets/icons/menu.svg'
 
 const Header = () => {
   return (
-    <div className='flex justify-between align-middle p-3 h-14'>
+    <div className='flex justify-between bg-gray-800 text-white align-middle p-3 h-14'>
       <h1 className='text-center m-0 text-3xl font-[600]'>Weather</h1>
       <div className='flex gap-3 align-middle'>
         <Seacrh class='hidden sm:flex'/>

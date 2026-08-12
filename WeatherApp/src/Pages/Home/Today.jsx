@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Card from '../../Components/Card'
 import { SubCard1x2, SubCard1x5 } from '../../Components/SubCards'
 import Condition from '../../Components/Condition'
@@ -7,14 +7,52 @@ import WeatherMap from '../../Components/Map'
 import { TileLayer, Marker } from 'react-leaflet'
 import { Link } from 'react-router'
 import { HorizontalScrollCard } from '../../Components/ScrollCards'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getCurrentData } from '../../App/WeatherDataSlices/currentData'
 
 const Today = () => {
+    const dispatch = useDispatch()
+    const [currentWeather, setCurrentWeather] = useState()
+    const examineLocalStorage = () => {
+        const acquiredData = JSON.parse(localStorage.getItem('currentData'))
+        if (acquiredData) {
+            setCurrentWeather(acquiredData)
+            console.log('got from local storage')
+        } else {
+            fetch('http://api.weatherapi.com/v1/current.json?key=b173fbed748442109b2110753250809&q=Karachi')
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem('currentData', JSON.stringify(data))
+                    console.log('called api')
+                })
+                .catch(error => console.log(error))
+        }
+    }
+
+    useEffect(() => {
+        examineLocalStorage()
+    }, [])
+
+    useEffect(() => {
+        if (currentWeather) {
+            dispatch(getCurrentData(currentWeather))
+        }
+    }, [currentWeather])
+
+    const { currentData } = useSelector(state => state.currentData)
+    console.log(currentData);
+
+    const currentDate = new Date(currentData.location?.localtime)
+    console.log(currentDate.toLocaleDateString('en-US', {weekday: 'short'}) , currentDate.toLocaleTimeString());
+    
 
     return (
         <>
+            {/* <button className='p-1 bg-gray-300 w-10 h-10' onClick={()=> dispatch(increment())}>+</button>
+            <div className='border-2 border-black w-10 h-10 p-2'>{count}</div>
+            <button className='p-1 bg-gray-300 w-10 h-10' onClick={()=> dispatch(decrement())}>-</button> */}
             <div className='flex flex-col flex-wrap align-middle justify-start mt-8 ml-5 gap-4'>
-                <Card title="Tonight's Weather" time="Fri,8pm">
+                <Card title="Tonight's Weather" time={`${currentDate.toLocaleDateString('en-US', {weekday: 'short'})}, ${currentDate.toLocaleTimeString()}`}>
                     <div className='flex flex-col flex-wrap gap-1'>
                         <h1>Partially Cloudy <b>Lo: 25°C</b></h1>
                         <h1>Tomorrow, Sunny <b>Hi: 35°C</b></h1>
@@ -27,15 +65,15 @@ const Today = () => {
                         <Table>
                             <div className="flex flex-row flex-nowrap align-middle justify-between">
                                 <p className='text-[0.9em] text-gray-700'>Wind</p>
-                                <b>NW, 11km/h</b>
+                                <b>{(currentData?.current?.wind_dir)?.slice(1)}, {Math.round(currentData?.current?.wind_kph)} <span className='font-[400]'>kph</span></b>
                             </div>
                             <div className="flex flex-row flex-nowrap align-middle justify-between">
                                 <p className='text-[0.9em] text-gray-700'>Wind Gusts</p>
-                                <b>14 km/h</b>
+                                <b>{Math.round(currentData?.current?.gust_kph)} <span className='font-[400]'>kph</span></b>
                             </div>
                             <div className="flex flex-row flex-nowrap align-middle justify-between">
                                 <p className='text-[0.9em] text-gray-700'>Air Quality</p>
-                                <b className='text-amber-600'>Poor</b>
+                                <b className='text-amber-600 font-[600] text-[1.1em]'>Poor</b>
                             </div>
 
                         </Table>
@@ -71,7 +109,7 @@ const Today = () => {
                 <Card title="Hourly Weather" >
                     <div className='w-[100%] h-40 my-2 relative'>
 
-                        <HorizontalScrollCard/>
+                        <HorizontalScrollCard />
 
                     </div>
                 </Card>

@@ -17,22 +17,9 @@ import Forecast from './Pages/Home/Forecast.jsx'
 import Radar from './Pages/Home/Radar.jsx'
 import Tomorrow from './Pages/Home/Tomorrow.jsx'
 
-
 function App() {
   // const [callValue, setCallValue] = useState(false)
   // const [mapUrl, setmapUrl] = useState()
-
-  // useEffect(() => {
-  //   const url = 'https://api.tomorrow.io/v4/map/tile/{z}/{x}/{y}/precipitationIntensity/now.png?apikey=ycdWwVV6iAKxsN6OZkEaA39DTQ7SQCjA'
-  //   setmapUrl(url)
-  // }, [callValue])
-  // useEffect(()=> {
-  //   fetch('http://api.weatherapi.com/v1/current.json?key=b173fbed748442109b2110753250809&q=Karachi')
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-  //   .catch(error => console.log(error))
-  // },[])
-
 
   return (
     <>
@@ -40,18 +27,18 @@ function App() {
       <Navbar />
 
 
-      
+
 
       <Routes>
-        <Route path='' element={<Today/>}/>
-        <Route path='hourly' element={<Hourly/>}/>
-        <Route path='forecast' element={<Forecast/>}/>
-        <Route path='radar' element={<Radar/>}/>
-        <Route path='tomorrow' element={<Tomorrow/>}/>
+        <Route path='' element={<Today />} />
+        <Route path='hourly' element={<Hourly />} />
+        <Route path='forecast' element={<Forecast />} />
+        <Route path='radar' element={<Radar />} />
+        <Route path='tomorrow' element={<Tomorrow />} />
 
       </Routes>
-      
-      <Footer/>
+
+      <Footer />
     </>
   )
 }
