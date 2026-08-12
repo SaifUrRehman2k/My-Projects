@@ -6,12 +6,12 @@ export const HorizontalScrollCard = () => {
     const horizontalCardRef = useRef(null)
 
     const scrollRight = () => {
-        console.log(horizontalCardRef.current)
+        // console.log(horizontalCardRef.current)
         const scrollX = horizontalCardRef.current
         scrollX.scrollLeft += 200;
     }
     const scrollLeft = () => {
-        console.log(horizontalCardRef.current)
+        // console.log(horizontalCardRef.current)
         const scrollX = horizontalCardRef.current
         scrollX.scrollLeft -= 200;
     }
