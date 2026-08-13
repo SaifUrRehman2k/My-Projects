@@ -16,25 +16,26 @@ const Condition = () => {
   const cdnIcon = condition?.icon
   const isDay = useSelector(state => state.currentData?.currentData?.current?.is_day)
 
-  
+
   // const dispatch = useDispatch()
 
 
   return (
     <>
-      <div className='flex flex-col flex-wrap justify-between w-[50%]'>
-        <div className='flex flex-row flex-nowrap gap-6'>
-          <div className='w-[54px] h-[54px]'>
-            <img className='w-[100%] h-[100%]' src={customIcon[conditionCode] && isDay == 0 ? customIcon[conditionCode] : cdnIcon} alt="" />
+      <div className='flex flex-row flex-nowrap justify-between w-full sm:w-[50%] h-auto'>
+        <div className='flex flex-col justify-around flex-nowrap '>
+          <div className='aspect-auto w-20 sm:w-[54px] sm:h-[54px]'>
+            <img src={customIcon[conditionCode] && isDay == 0 ? customIcon[conditionCode] : cdnIcon} alt="" />
           </div>
           <div className='flex flex-col flex-wrap'>
-            <h1 className='text-[3em]/8 font-[600] line'>{Math.round(currentData?.current?.temp_c)}°<span className='text-[0.4em] text-gray-500'>C</span></h1>
-            <p>Real Feel' {Math.round(currentData?.current?.feelslike_c)}°C</p>
+            <h1 className='text-[1em] sm:text-[1.2em]'>{currentData?.current?.condition?.text}</h1>
+            <Link className='text-blue-800 underline'>More Details</Link>
           </div>
         </div>
-        <div className='flex-col flex-wrap'>
-          <h1 className='text-[1.2em]'>{currentData?.current?.condition?.text}</h1>
-          <Link className='text-blue-800 underline'>More Details</Link>
+        <div className='flex flex-col justify-between sm:justify-around flex-wrap '>
+
+          <h1 className='text-[4em]/16 sm:text-[3em]/8 font-[600] line'>{Math.round(currentData?.current?.temp_c)}°<span className='text-[0.4em] text-gray-500'>C</span></h1>
+          <p>Real Feel' {Math.round(currentData?.current?.feelslike_c)}°C</p>
         </div>
       </div>
     </>
