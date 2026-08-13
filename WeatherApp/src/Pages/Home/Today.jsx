@@ -60,7 +60,7 @@ const Today = () => {
                 </Card>
 
                 <Card title="Current Weather">
-                    <div className='flex flex-row flex-nowrap justify-around h-34'>
+                    <div className='flex flex-col sm:flex-row flex-nowrap  justify-around h-[30em] sm:h-34 p-10 sm:p-0'>
                         <Condition />
                         <Table>
                             <div className="flex flex-row flex-nowrap align-middle justify-between">

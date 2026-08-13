@@ -16,6 +16,7 @@ import Hourly from './Pages/Home/Hourly.jsx'
 import Forecast from './Pages/Home/Forecast.jsx'
 import Radar from './Pages/Home/Radar.jsx'
 import Tomorrow from './Pages/Home/Tomorrow.jsx'
+import SideBar from './Components/SideBar/index.jsx'
 
 function App() {
   // const [callValue, setCallValue] = useState(false)
@@ -25,7 +26,7 @@ function App() {
     <>
       <Header />
       <Navbar />
-
+      <SideBar />
 
 
 
