@@ -18,7 +18,7 @@ export const HorizontalScrollCard = () => {
 
     return (
         <div>
-            <button type='button' onClick={() => scrollLeft()} className='absolute top-0 left-[-15px] bg-gray-400  w-7 h-[100%]  flex flex-row justify-center align-middle'>{'<'}</button>
+            <button type='button' onClick={() => scrollLeft()} className='absolute top-15 left-[-15px] border border-gray-300 rounded-[50%] hover:bg-gray-300 hover:cursor-pointer  w-7 h-max  flex flex-row justify-center align-middle'>{'<'}</button>
             <div className=" h-[100%] w-[100%] whitespace-nowrap overflow-x-auto  snap-x snap-mandatory scrollbar-hide scroll-smooth" ref={horizontalCardRef}>
                 <div className="flex w-max space-x-4 h-full" >
                     <SubCard1x2 />
@@ -32,7 +32,7 @@ export const HorizontalScrollCard = () => {
                 </div>
             </div>
 
-            <button type='button' onClick={() => scrollRight()} className='absolute top-0 right-[-15px] bg-gray-400  w-7 h-[100%]  flex flex-row justify-center align-middle'>{'>'}</button>
+            <button type='button' onClick={() => scrollRight()} className='absolute top-15 right-[-15px] border border-gray-300 rounded-[50%] hover:bg-gray-300 hover:cursor-pointer  w-7 h-max  flex flex-row justify-center align-middle'>{'>'}</button>
 
         </div>
     )

@@ -9,6 +9,7 @@ import { Link } from 'react-router'
 import { HorizontalScrollCard } from '../../Components/ScrollCards'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCurrentData } from '../../App/WeatherDataSlices/currentData'
+import RapidApiWeatherTileLayer from '../../Components/MapLayer'
 
 const Today = () => {
     const dispatch = useDispatch()
@@ -60,7 +61,7 @@ const Today = () => {
                 </Card>
 
                 <Card title="Current Weather">
-                    <div className='flex flex-col sm:flex-row flex-nowrap  justify-around h-[30em] sm:h-34 p-10 sm:p-0'>
+                    <div className='flex flex-col sm:flex-row flex-nowrap  justify-around h-[30em] sm:h-34 p-0'>
                         <Condition />
                         <Table>
                             <div className="flex flex-row flex-nowrap align-middle justify-between">
@@ -99,6 +100,9 @@ const Today = () => {
                 attribution='&copy; WeatherApi'
                 url={mapUrl}
               /> */}
+                            {/* <RapidApiWeatherTileLayer time={30} opacity={1} /> */}
+
+                                
                             <Marker
                                 position={[24.8608, 67.01]}
                             />
@@ -115,7 +119,7 @@ const Today = () => {
                 </Card>
 
                 <Card title="10 day weather forecast">
-                    <div className='flex flex-col flex-wrap w-[100%] h-max gap-5'>
+                    <div className='flex flex-row sm:flex-col flex-wrap w-full items-stretch h-max gap-5'>
                         <SubCard1x5 />
                         <SubCard1x5 />
                         <SubCard1x5 />

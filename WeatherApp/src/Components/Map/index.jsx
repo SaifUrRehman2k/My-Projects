@@ -21,8 +21,8 @@ export const WeatherMap2 = ({ children }) => {
     return (
         <MapContainer
             center={[24.8607, 67.0011]}
-            zoom={13}
-            className='w-[100%] h-[100vh] '
+            zoom={8}
+            className='w-[100%] h-[100%] '
         >
             {children}
         </MapContainer>

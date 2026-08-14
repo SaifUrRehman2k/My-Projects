@@ -16,17 +16,17 @@ export const SubCard1x2 = () => {
 export const SubCard1x5 = () => {
     return (
         <>
-            <div className='flex flex-row items-center justify-between p-2'>
-                <p className='flex flex-col flex-wrap items-center w-[20%] sm:w-25%'>
+            <div className='flex flex-col sm:flex-row items-center flex-1 justify-evenly sm:justify-between sm:border-0 border border-gray-300 p-0 sm:p-2 min-w-[12em] max-w-[100%] h-[16em] sm:h-max'>
+                <p className='flex flex-col flex-wrap items-center sm:w-25%'>
                     <b>Today</b>
                     <small>9/5</small>
                 </p>
-                <div className='w-[35%] sm:w-30 flex flex-row items-end justify-center sm:justify-start gap-1'>
+                <div className='w-max sm:w-30 flex flex-col sm:flex-row items-center sm:items-end justify-center sm:justify-start gap-1'>
                     <div className='w-[24px] h-[24px] bg-gray-500 '></div>
                     <h2 className='text-[1.4em]/6 font-[600]'>27°</h2>
                     <small className='text-[16px]/6 font-[400] text-gray-600'>22°</small>
                 </div>
-                <h2 className='w-[50%] text-center sm:text-left text-[1em] font-[600]'>Partially Cloudy</h2>
+                <h2 className='w-max sm:w-[50%] text-center sm:text-left text-[1em] font-[600]'>Partially Cloudy</h2>
                 <small className='w-[8%] sm:w-10 text-[16px] text-gray-600'>5%</small>
             </div>
         </>
