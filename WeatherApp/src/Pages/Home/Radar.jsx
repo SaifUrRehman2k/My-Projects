@@ -4,7 +4,7 @@ import { WeatherMap2 } from '../../Components/Map'
 
 const Radar = () => {
   return (
-    <div className='mx-3 my-5 w-80vw'>
+    <div className='mx-3 my-5 w-[80vw] h-[75vh]'>
 
       <WeatherMap2>
         <TileLayer
